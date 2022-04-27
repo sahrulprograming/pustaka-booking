@@ -25,3 +25,19 @@ function cek_user()
         redirect('home');
     }
 }
+
+function ambilData($table, $where, $field)
+{
+    $ci = get_instance();
+    $ci->db->select($field);
+    $ci->db->where($where);
+    $data = $ci->db->get($table)->row_array();
+    return $data[$field];
+}
+
+function formattanggalprint($tanggal)
+{
+    $tanggal = explode('-', $tanggal);
+    $tanggal = $tanggal[2] . '/' . $tanggal[1] . '/' . $tanggal[0];
+    return $tanggal;
+}

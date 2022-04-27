@@ -28,13 +28,13 @@
                                     <td><?= $p['id_buku']; ?></td>
                                     <td><?= $p['tgl_kembali']; ?></td>
                                     <td>
-                                        <?= date('Y-m-d'); ?>
+                                        <?= $p['tgl_pengembalian']; ?>
                                         <input type="hidden" name="tgl_pengembalian" id="tgl_pengembalian" value="<?= date('Y-m-d'); ?>">
                                     </td>
                                     <td>
                                         <?php
                                         $tgl1 = new DateTime($p['tgl_kembali']);
-                                        $tgl2 = new DateTime();
+                                        $tgl2 = new DateTime($p['tgl_pengembalian']);
                                         if (date('Y-m-d') > $p['tgl_kembali']) {
                                             $selisih = $tgl2->diff($tgl1)->format("%a");
                                         } else {

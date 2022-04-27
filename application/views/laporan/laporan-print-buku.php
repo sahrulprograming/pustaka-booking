@@ -35,7 +35,6 @@
                 <th>Judul Buku</th>
                 <th>Pengarang</th>
                 <th>Terbit</th>
-                81
                 <th>Tahun Penerbit</th>
                 <th>ISBN</th>
                 <th>Stok</th>

@@ -6,23 +6,28 @@ class Laporan extends CI_Controller
     {
         parent::__construct();
     }
-    public function laporan_buku()
+    public function index($table)
     {
-        $data['judul'] = 'Laporan Data Buku';
+        $data['judul'] = 'Laporan Data ' . $table;
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-        $data['buku'] = $this->ModelBuku->getBuku()->result_array();
+        // if ($table == 'member'){
+        //     $this->db->where_not_in('role_id !=', '1');
+        // }
+        $data[$table] = $this->ModelLaporan->getData($table)->result_array();
         $data['kategori'] = $this->ModelBuku->getKategori()->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('buku/laporan-buku', $data);
+        $this->load->view("laporan/laporan-$table", $data);
         $this->load->view('templates/footer');
     }
-    public function cetak_laporan_buku()
+    public function cetak_laporan($table)
     {
-        $data['buku'] = $this->ModelBuku->getBuku()->result_array();
-        $data['kategori'] = $this->ModelBuku->getKategori()->result_array();
+        $data[$table] = $this->ModelLaporan->getData($table)->result_array();
+        if ($table == 'buku') {
+            $data['kategori'] = $this->ModelBuku->getKategori()->result_array();
+        }
 
-        $this->load->view('buku/laporan-print-buku', $data);
+        $this->load->view("laporan/laporan-print-$table", $data);
     }
 }
