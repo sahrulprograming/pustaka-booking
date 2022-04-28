@@ -26,7 +26,7 @@ class User extends CI_Controller
         $data['judul'] = 'Data Anggota';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
         $this->db->where('role_id', 1);
-        $data['anggota'] = $this->db->get('user')->result_array();
+        $data['anggota'] = $this->db->get('users')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -76,7 +76,8 @@ class User extends CI_Controller
 
                     $gambar_baru = $this->upload->data('file_name');
                     $this->db->set('image', $gambar_baru);
-                } else { }
+                } else {
+                }
             }
 
             $this->db->set('nama', $nama);
