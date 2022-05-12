@@ -10,8 +10,8 @@
             <?php } ?>
             <?= $this->session->flashdata('pesan'); ?>
             <a href="<?= base_url('laporan/cetak_laporan/buku'); ?>" target="_blank" class="btn btn-primary mb-3"><i class="fas fa-print"></i> Print</a>
-            <a href="<?= base_url('laporan/laporan_buku_pdf'); ?>" target="_blank" class="btn btn-warning mb-3"><i class="far fa-file-pdf"></i> Download Pdf</a>
-            <a href="<?= base_url('laporan/export_excel'); ?>" target="_blank" class="btn btn-success mb-3"><i class="far fa-file-excel"></i> Export ke Excel</a>
+            <a href="<?= base_url('laporan/cetak_laporan_pdf/buku'); ?>" target="_blank" class="btn btn-warning mb-3"><i class="far fa-file-pdf"></i> Download Pdf</a>
+            <a href="<?= base_url('laporan/export_excel/buku'); ?>" target="_blank" class="btn btn-success mb-3"><i class="far fa-file-excel"></i> Export ke Excel</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
