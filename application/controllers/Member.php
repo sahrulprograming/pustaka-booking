@@ -137,7 +137,7 @@ class Member extends CI_Controller
             }
             $this->db->set('nama', $nama);
             $this->db->where('email', $email);
-            $this->db->update('user');
+            $this->db->update('users');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Profil Berhasil diubah </div>');
             redirect('member/myprofil');
         }
